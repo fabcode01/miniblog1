@@ -1,0 +1,65 @@
+import { NavLink } from 'react-router-dom'
+import styles from './Navbar.module.css'
+
+import { useAuth } from '../hooks/useAuth'
+import { useAuthValue } from '../context/AuthContext'
+
+
+const Navbar = () => {
+    const user = useAuthValue()
+    const{logout} = useAuth()
+    
+    
+    return (
+        <nav className={styles.navbar}>
+            <NavLink to='/' className={styles.brand}>
+                Mini <span>BLOG</span>
+            </NavLink>
+
+            <ul className={styles.links_list}>
+                <li>
+                    <NavLink to='/' className={({ isActive }) => (isActive ? styles.active : '')}>Home</NavLink>
+                </li>
+
+                
+
+
+                {!user.user && (
+                    <>
+                        <li>
+                            <NavLink to='/login' className={({ isActive }) => (isActive ? styles.active : '')}>Entrar</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/register' className={({ isActive }) => (isActive ? styles.active : '')}>Cadastrar</NavLink>
+                        </li>
+                    </>
+                )}
+
+
+                {user.user && (
+                    <>
+                        <li>
+                            <NavLink to='/posts/create' className={({ isActive }) => (isActive ? styles.active : '')}>Novo Post</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/dashboard' className={({ isActive }) => (isActive ? styles.active : '')}>Meus Posts</NavLink>
+                        </li>
+                    </>
+                )}
+
+
+                <li>
+                    <NavLink to='/about' className={({ isActive }) => (isActive ? styles.active : '')}>Sobre</NavLink>
+                </li>
+
+                {user.user && (
+                    <li>
+                        <span onClick={logout}>Sair</span>
+                    </li>
+                )}
+            </ul>
+        </nav>
+    )
+}
+
+export default Navbar

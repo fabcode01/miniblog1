@@ -1,0 +1,80 @@
+.noposts{
+    margin-top: 15px;
+    text-align: center;
+   
+}
+
+
+.btn{
+    display: block;
+    margin: auto;
+    width: 30%;
+    text-align: center;
+    margin-top: 15px;
+    
+
+    background-color: #000;
+    color: white;
+    padding: 10px;
+}
+
+.dashboard{
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard h2{
+    
+    font-size: 2.2em;
+    margin-bottom: .5em;
+
+}
+
+
+.dashboard p{
+   
+    color: #aaa;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+
+}
+
+.post_header, .post_row{
+    
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    width: 120%;
+    
+    
+}
+
+.post_header{
+   
+    border-bottom: 2px solid #ccc;
+    padding: 10px;
+    
+}
+
+.post_row{
+   
+    border-bottom: 1px solid #eee;
+   
+}
+
+.post_row p{
+    color: #000;
+}
+
+.post_row button, 
+.post_row a{
+    margin: 5px 5px;
+    height: 30px;
+    width: 100px;
+    font-size: 0.7em;
+}
